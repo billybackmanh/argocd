@@ -1,0 +1,28 @@
+#definition of application, created in cluster
+#variables are first checked in values.yaml, if variable exists in other values file, they are overwritten by that value
+{{- if .Values.platform_app_of_apps.enabled }}
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: guestbook
+  namespace: default
+  annotations:
+      argocd.argoproj.io/sync-wave: "6"
+spec:
+  destination:
+    server: {{ .Values.destinationServer }}
+  project: {{ .Values.platform_app_of_apps.project }}
+  source:
+    path: {{ .Values.platform_app_of_apps.path }}
+    helm:
+      valueFiles:
+      - {{ .Values.env }}
+    repoURL: {{ .Values.platform_app_of_apps.git.repoURL }}
+    targetRevision: {{ .Values.platform_app_of_apps.git.target_revision }}
+  syncPolicy:
+    automated:
+      prune: {{ .Values.platform_app_of_apps.sync.prune }}
+      selfHeal: {{ .Values.platform_app_of_apps.sync.heal }}
+    syncOptions:
+    - CreateNamespace=true
+{{- end }}

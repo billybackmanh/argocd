@@ -4,3 +4,193 @@
 destinationServer: https://kubernetes.default.svc
 targetRevision: main
 env: values.yaml
+clusterconfig:
+  enabled: true
+  project: default
+  path: clusterconfig
+  sync:
+    prune: false
+    heal: true
+
+logginginstance:
+  enabled: true
+  project: default
+  path: logginginstance
+  sync:
+    prune: false
+    heal: true
+
+localstorage:
+  enabled: true
+  project: default
+  path: localstorageinstance
+  sync:
+    prune: false
+    heal: true
+
+csi:
+  enabled: true
+  project: default
+  path: csi
+  sync:
+    prune: false
+    heal: true
+
+operators:
+  enabled: true
+  project: default
+  path: operators
+  sync:
+    prune: false
+    heal: true
+
+zabbix:
+  enabled: true
+  project: default
+  path: zabbix
+  sync:
+    prune: false
+    heal: true
+
+cohesity:
+  enabled: true
+  project: default
+  path: cohesity
+  sync:
+    prune: false
+    heal: true
+
+kardapp:
+  enabled: true
+  project: default
+  path: kardapp
+  sync:
+    prune: false
+    heal: true
+
+idp:
+  enabled: true
+  project: default
+  path: idp
+  sync:
+    prune: false
+    heal: true
+
+couchbase:
+  enabled: true
+  project: default
+  path: couchbase
+  sync:
+    prune: false
+    heal: true
+
+certmanager:
+  enabled: true
+  project: default
+  path: certmanager
+  sync:
+    prune: false
+    heal: true
+
+certmanagertrust:
+  enabled: true
+  project: default
+  path: certmanagertrust
+  sync:
+    prune: false
+    heal: true
+
+kong:
+  enabled: true
+  project: default
+  path: kong
+  sync:
+    prune: false
+    heal: true
+
+konghelm:
+  enabled: true
+  project: default
+  path: kong
+  destinationNamespace: kong
+  repoURL: "https://charts.konghq.com"
+  chart: kong
+  targetrevision: v2.8.0
+  sync:
+    prune: false
+    heal: true
+
+integrations:
+  enabled: false
+  project: default
+  path: integrations
+  sync:
+    prune: false
+    heal: true
+
+jfrog:
+  enabled: true
+  project: default
+  path: jfrog
+  sync:
+    prune: false
+    heal: true
+
+jfroghelm:
+  enabled: true
+  project: default
+  path: jfrog
+  destinationNamespace: jfrog
+  repoURL: "https://charts.jfrog.io"
+  chart: jfrog-platform
+  targetrevision: v10.9.1
+  sync:
+    prune: false
+    heal: true
+
+firely:
+  enabled: true
+  project: default
+  path: firely
+  sync:
+    prune: false
+    heal: true
+
+firelyhelm:
+  enabled: false
+  project: default
+  path: firely
+  destinationNamespace: firely
+  repoURL: "https://raw.githubusercontent.com/FirelyTeam/Helm.Charts/master/"
+  chart: firely-server-0.11.0
+  targetrevision: 0.11.0
+  sync:
+    prune: false
+    heal: true
+
+nginx_app:
+  enabled: false
+  project: default
+  path: nginx
+  sync:
+    prune: false
+    heal: true
+
+crossplane:
+  enabled: false
+  project: default
+  path: crossplane
+  sync:
+    prune: true
+    heal: true
+
+platform_app_of_apps:
+  enabled: true
+  project: default
+  path: deployments/platform-app-of-apps-tamarin-test
+  sync:
+    prune: false
+    heal: true
+  git:
+    repoURL: https://github.com/kardapp/common-deploy.git
+    target_revision: main
