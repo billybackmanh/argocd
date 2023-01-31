@@ -1,0 +1,5 @@
+apiVersion: v2
+kind: Application
+metadata:
+  name: argocd-apps-of-apps
+  namespace: argocd
