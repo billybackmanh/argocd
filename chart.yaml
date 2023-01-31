@@ -1,23 +1,46 @@
 apiVersion: v2
-name: argocd
-description: A Helm chart for Kubernetes
-
-# A chart can be either an 'application' or a 'library' chart.
-#
-# Application charts are a collection of templates that can be packaged into versioned archives
-# to be deployed.
-#
-# Library charts provide useful utilities or functions for the chart developer. They're included as
-# a dependency of application charts to inject those utilities and functions into the rendering
-# pipeline. Library charts do not define any templates and therefore cannot be deployed.
-type: application
-
-# This is the chart version. This version number should be incremented each time you make changes
-# to the chart and its templates, including the app version.
-# Versions are expected to follow Semantic Versioning (https://semver.org/)
+name: argocd-apps-of-apps
+description: ArgoCD Applications of Applications Chart
 version: 0.1.0
 
-# This is the version number of the application being deployed. This version number should be
-# incremented each time you make changes to the application. Versions are not expected to
-# follow Semantic Versioning. They should reflect the version the application is using.
-appVersion: 1.1.0
+# Define the available variables for this chart
+# Use the default values if the values are not supplied
+# Use the .Values.argocd.* to access the variables in the templates
+values:
+  argocd:
+    name: argocd-apps-of-apps
+    namespace: argocd
+    replicaCount: 1
+    image:
+      repository: argoproj/argocd
+      tag: latest
+      pullPolicy: IfNotPresent
+    server:
+      url: http://argocd-server.argocd.svc:80
+    app:
+      name: apps-of-apps
+      source:
+        repoURL: https://github.com/billybackmanh/argocd.git
+        path: apps
+        targetRevision: HEAD
+        syncPolicy:
+          automated:
+            prune: true
+            selfHeal: true
+
+# Define the resources that this chart creates
+# The resources are created using the templates in the templates directory
+resources:
+  - resources/argocd-apps-of-apps.yaml
+
+# Define the templates that are used to create the resources
+# Use the {{ .Values.argocd.* }} to access the variables in the templates
+templates:
+  - resources/argocd-apps-of-apps.yaml
+
+# Define the dependencies of this chart
+# These are the charts that are required to run this chart
+dependencies:
+  - name: argocd-server
+    version: 0.1.0
+    repository: https://kubernetes-charts.storage.googleapis.com
