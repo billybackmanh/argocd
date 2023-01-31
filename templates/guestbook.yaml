@@ -1,9 +1,0 @@
-#definition of application, created in cluster
-#variables are first checked in values.yaml, if variable exists in other values file, they are overwritten by that value
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: guestbook
-  namespace: default
-  annotations:
-      argocd.argoproj.io/sync-wave: "6"
