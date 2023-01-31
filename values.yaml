@@ -4,6 +4,7 @@
 destinationServer: https://kubernetes.default.svc
 targetRevision: main
 env: values.yaml
+
 clusterconfig:
   enabled: true
   project: default
@@ -184,13 +185,13 @@ crossplane:
     prune: true
     heal: true
 
-platform_app_of_apps:
+guestbook:
   enabled: true
   project: default
-  path: deployments/platform-app-of-apps-tamarin-test
+  path: deployments/guestbook
   sync:
     prune: false
     heal: true
   git:
-    repoURL: https://github.com/kardapp/common-deploy.git
+    repoURL: https://github.com/billybackmanh/argocd.git
     target_revision: main

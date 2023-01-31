@@ -11,18 +11,18 @@ metadata:
 spec:
   destination:
     server: {{ .Values.destinationServer }}
-  project: {{ .Values.platform_app_of_apps.project }}
+  project: {{ .Values.guestbook.project }}
   source:
-    path: {{ .Values.platform_app_of_apps.path }}
+    path: {{ .Values.guestbook.path }}
     helm:
       valueFiles:
       - {{ .Values.env }}
-    repoURL: {{ .Values.platform_app_of_apps.git.repoURL }}
-    targetRevision: {{ .Values.platform_app_of_apps.git.target_revision }}
+    repoURL: {{ .Values.guestbook.git.repoURL }}
+    targetRevision: {{ .Values.guestbook.git.target_revision }}
   syncPolicy:
     automated:
-      prune: {{ .Values.platform_app_of_apps.sync.prune }}
-      selfHeal: {{ .Values.platform_app_of_apps.sync.heal }}
+      prune: {{ .Values.guestbook.sync.prune }}
+      selfHeal: {{ .Values.guestbook.sync.heal }}
     syncOptions:
     - CreateNamespace=true
 {{- end }}
