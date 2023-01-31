@@ -1,6 +1,5 @@
 #definition of application, created in cluster
 #variables are first checked in values.yaml, if variable exists in other values file, they are overwritten by that value
-{{- if .Values.platform_app_of_apps.enabled }}
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -8,21 +7,3 @@ metadata:
   namespace: default
   annotations:
       argocd.argoproj.io/sync-wave: "6"
-spec:
-  destination:
-    server: {{ .Values.destinationServer }}
-  project: {{ .Values.guestbook.project }}
-  source:
-    path: {{ .Values.guestbook.path }}
-    helm:
-      valueFiles:
-      - {{ .Values.env }}
-    repoURL: {{ .Values.guestbook.git.repoURL }}
-    targetRevision: {{ .Values.guestbook.git.target_revision }}
-  syncPolicy:
-    automated:
-      prune: {{ .Values.guestbook.sync.prune }}
-      selfHeal: {{ .Values.guestbook.sync.heal }}
-    syncOptions:
-    - CreateNamespace=true
-{{- end }}
