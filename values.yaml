@@ -1,6 +1,0 @@
-destinationServer: https://kubernetes.default.svc
-targetRevision: main
-env: values.yaml
-spec:
-  destination:
-    server: https://kubernetes.default.svc
