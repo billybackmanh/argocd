@@ -1,0 +1,6 @@
+# values.yaml
+# taint = node level special label, need matching toleration, nodeSelector
+#
+destinationServer: https://kubernetes.default.svc
+targetRevision: main
+env: values.yaml
