@@ -1,18 +1,6 @@
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: {{ .Values.argocd.app.name }}
-  namespace: {{ .Values.argocd.namespace }}
+destinationServer: https://kubernetes.default.svc
+targetRevision: main
+env: values.yaml
 spec:
-  project: default
-  source:
-    repoURL: {{ .Values.argocd.app.source.repoURL }}
-    path: {{ .Values.argocd.app.source.path }}
-    targetRevision: {{ .Values.argocd.app.source.targetRevision }}
-    syncPolicy:
-      automated:
-        prune: {{ .Values.argocd.app.source.syncPolicy.automated.prune }}
-        selfHeal: {{ .Values.argocd.app.source.syncPolicy.automated.selfHeal }}
   destination:
-    server: {{ .Values.argocd.server.url }}
-    namespace: {{ .Values.argocd.namespace }}
+    server: https://kubernetes.default.svc
