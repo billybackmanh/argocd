@@ -12,7 +12,7 @@ spec:
   - http:
      hosts: frontend.minikube.local
       paths:
-      - path: vault
+      - path: /
         backend:
           serviceName: vault
           servicePort: 8200
