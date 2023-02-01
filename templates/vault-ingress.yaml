@@ -2,7 +2,7 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: vault-ingress
-  namespace: default
+  namespace: argocd
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
     kubernetes.io/ingress.class: nginx
@@ -10,6 +10,7 @@ metadata:
 spec:
   rules:
   - http:
+     hosts: frontend.minikube.local
       paths:
       - path: /vault
         backend:
