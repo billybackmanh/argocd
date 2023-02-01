@@ -12,11 +12,12 @@ spec:
     helm:
       releaseName: vault
     values: |
-      ingress:
-        enabled: true
-        hosts:
-        - host: frontend.minikube.local
-          paths: /
+      server:
+        ingress:
+          enabled: true
+          hosts:
+          - host: frontend.minikube.local
+            paths: /
   destination:
     server: "https://kubernetes.default.svc"
     namespace: default
