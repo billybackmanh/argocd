@@ -4,11 +4,17 @@ metadata:
   name: gsd
   namespace: argocd
 spec:
-  destination:
-    namespace: default
-    server: {{ .Values.spec.destination.server }}
   project: default
   source:
-    path: gsd
+    image: getting-started 
     repoURL: https://github.com/billybackmanh/getting-started.git
-    targetRevision: main
+    values: |
+      server:
+        ingress:
+          enabled: true
+          hosts:
+          - host: gsd.minikube.local
+            paths: /
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: default
