@@ -58,10 +58,10 @@ spec:
 apiVersion: networking.k8s.io/v1
 kind: IngressClass
 metadata:
-  name: gsd
+  labels:
+    app.kubernetes.io/component: controller
+  name: nginx-example
+  annotations:
+    ingressclass.kubernetes.io/is-default-class: "true"
 spec:
-  controller: minikub.local/ingress-controller
-  parameters:
-    apiGroup: k8s.example.com
-    kind: IngressParameters
-    name: gsd
+  controller: k8s.io/ingress-nginx
