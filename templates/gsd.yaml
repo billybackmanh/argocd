@@ -43,7 +43,7 @@ metadata:
     app.kubernetes.io/name: gsd
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
-  ingressClassName: nginx-example
+  ingressClassName: gsd
   rules:
   - http:
       paths:
