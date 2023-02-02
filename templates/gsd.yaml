@@ -53,15 +53,3 @@ spec:
             name: gsd
             port:
               number: 3000
----
-apiVersion: networking.k8s.io/v1
-kind: IngressClass
-metadata:
-  labels:
-  app.kubernetes.io/name: gsd
-    app.kubernetes.io/component: controller
-  name: gsd
-  annotations:
-    ingressclass.kubernetes.io/is-default-class: "true"
-spec:
-  controller: k8s.io/ingress-nginx
