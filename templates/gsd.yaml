@@ -1,20 +1,21 @@
-apiVersion: argoproj.io/v1alpha1
-kind: Application
+apiVersion: apps/v1
+kind: Deployment
 metadata:
   name: gsd
-  namespace: argocd
+  labels:
+    app: gsd
 spec:
-  project: default
-  source:
-    image: getting-started 
-    repoURL: https://github.com/billybackmanh/getting-started.git
-    values: |
-      server:
-        ingress:
-          enabled: true
-          hosts:
-          - host: gsd.minikube.local
-            paths: /
-  destination:
-    server: "https://kubernetes.default.svc"
-    namespace: default
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gsd
+  template:
+    metadata:
+      labels:
+        app: gsd
+    spec:
+      containers:
+      - name: gsd
+        image: billybackmanh/getting-started:latest
+        ports:
+        - containerPort: 3000
