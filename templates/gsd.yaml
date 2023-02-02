@@ -21,9 +21,3 @@ spec:
     metadata:
       labels:
         app: getting-started
-    spec:
-      containers:
-      - name: getting-started
-        image: billybackmanh/getting-started:latest
-        ports:
-        - containerPort: 3000
