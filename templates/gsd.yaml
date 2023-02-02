@@ -1,29 +1,14 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: argoproj.io/v1alpha1
+kind: Application
 metadata:
   name: getting-started
   namespace: argocd
-  labels:
-    app: getting-started
 spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: getting-started
   destination:
     namespace: default
     server: {{ .Values.spec.destination.server }}
-    project: default
-    source:
-       path: getting-started
-    repoURL: https://github.com/billybackmanh/getting-started.git
-  template:
-    metadata:
-      labels:
-        app: getting-started
-  spec:
-    containers:
-    - name: getting-started
-      image: billybackmanh/getting-started:latest
-      ports:
-      - containerPort: 3000
+  project: default
+  source:
+    path: getting-started
+    repoURL: https://github.com/billybackmanh/getting-started.gi
+    targetRevision: main
