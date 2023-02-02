@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gsd
+  labels:
+    app: gsd
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gsd
+  template:
+    metadata:
+      labels:
+        app: gsd
+    spec:
+      containers:
+      - name: gsd
+        image: billybackmanh/getting-started:latest
+        ports:
+        - containerPort: 3000
