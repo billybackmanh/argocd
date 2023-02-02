@@ -40,7 +40,6 @@ kind: Ingress
 metadata:
   name: gsd
   annotations:
-    app.kubernetes.io/name: gsd
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   ingressClassName: gsd
