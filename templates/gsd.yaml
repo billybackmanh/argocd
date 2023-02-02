@@ -10,10 +10,12 @@ spec:
   selector:
     matchLabels:
       app: gsd
+      app.kubernetes.io/name: gsd
   template:
     metadata:
       labels:
         app: gsd
+        app.kubernetes.io/name: gsd
     spec:
       containers:
       - name: gsd
