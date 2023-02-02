@@ -1,6 +1,0 @@
-apiVersion: v2
-name: gsd
-appVersion: "1.0"
-description: getting-started 1.0  
-version: 0.1.0
-type: application
