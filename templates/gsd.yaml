@@ -10,5 +10,5 @@ spec:
   project: default
   source:
     path: getting-started
-    repoURL: https://github.com/billybackmanh/getting-started.gi
+    repoURL: https://github.com/billybackmanh/getting-started.git
     targetRevision: main
