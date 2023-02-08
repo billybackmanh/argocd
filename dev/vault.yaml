@@ -336,7 +336,7 @@ metadata:
 spec:
   serviceName: release-name-vault-internal
   podManagementPolicy: Parallel
-  replicas: 1
+  replicas: 3
   updateStrategy:
     type: OnDelete
   selector:
