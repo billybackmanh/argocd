@@ -391,6 +391,7 @@ spec:
           command:
           - "/bin/sh"
           - "-ec"
+          - "IPC_LOCK"
           args: 
           - |
             cp /vault/config/extraconfig-from-values.hcl /tmp/storageconfig.hcl;
@@ -403,7 +404,7 @@ spec:
             /usr/local/bin/docker-entrypoint.sh vault server -config=/tmp/storageconfig.hcl 
    
           securityContext:
-            allowPrivilegeEscalation: false
+            allowPrivilegeEscalation: true
           env:
             - name: HOST_IP
               valueFrom:
