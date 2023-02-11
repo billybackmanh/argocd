@@ -391,7 +391,6 @@ spec:
           command:
           - "/bin/sh"
           - "-ec"
-          - "IPC_LOCK"
           args: 
           - |
             cp /vault/config/extraconfig-from-values.hcl /tmp/storageconfig.hcl;
