@@ -254,7 +254,6 @@ spec:
       hostNetwork: false
       containers:
         - name: sidecar-injector
-          
           image: "hashicorp/vault-k8s:1.1.0"
           imagePullPolicy: "IfNotPresent"
           securityContext:
