@@ -543,7 +543,6 @@ metadata:
   annotations:
     "helm.sh/hook": test
 spec:
-  
   containers:
     - name: release-name-server-test
       image: hashicorp/vault:1.12.1
@@ -551,7 +550,8 @@ spec:
       env:
         - name: VAULT_ADDR
           value: http://release-name-vault.default.svc:8200
-        
+          name: VAULT_NAMESPACE
+          vaule: admin
       command:
         - /bin/sh
         - -c
