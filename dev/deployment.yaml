@@ -11,3 +11,10 @@ spec:
     metadata:
       labels:
         app: argocd-app
+              containers:	
+        - image: 'nanajanashia/argocd-app:1.2'	
+          imagePullPolicy: IfNotPresent	
+          name: myapp	
+          ports:	
+            - containerPort: 8080	
+              protocol: TCP	
